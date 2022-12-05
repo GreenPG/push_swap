@@ -6,7 +6,7 @@
 #    By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:10:41 by gpasquet          #+#    #+#              #
-#    Updated: 2022/12/01 16:09:29 by gpasquet         ###   ########.fr        #
+#    Updated: 2022/12/04 14:27:56 by gpasquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ LIBFT = libft/libft.a
 SRC =	src/main.c \
 		src/lst_functions.c \
 		src/parsing.c \
-		src/utils.c
+		src/utils.c \
+		src/move_functions.c \
+		src/small_sort.c
 
 OBJS = ${SRC:.c=.o}
 

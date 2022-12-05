@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:59:48 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/01 15:30:15 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:18:33 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	check_digit(char **input)
 int	main(int ac, char **av)
 {
 	t_circ_list	*a;
-//	t_circ_list	*b;
+	t_circ_list	*b;
 	t_circ_list	*disp_lst;
 
 	if (ac == 0)
@@ -51,7 +51,18 @@ int	main(int ac, char **av)
 	}
 	if (check_sorted(a) == 1)
 		return (0);
+	b = c_lst_new();
 	disp_lst = a->next;
+	ft_printf("-------------------------\nBefore sorting:\n");
+	while (disp_lst != a)
+	{
+		ft_printf("%d\n", disp_lst->content);
+		disp_lst = disp_lst->next;
+	}
+	ft_printf("\n------------------------\n");
+	sort_chose(get_lst_size(a), a, b);
+	disp_lst = a->next;
+	ft_printf("-------------------------\nAfter sorting:\n");
 	while (disp_lst != a)
 	{
 		ft_printf("%d\n", disp_lst->content);

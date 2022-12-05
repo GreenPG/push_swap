@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:23:20 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/11/08 17:14:10 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/04 12:43:49 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	ft_puthexa(unsigned int nb, char *base)
 		j = 0;
 		i++;
 	}
+	written_size = 0;
 	if (i >= 2)
 		written_size = ft_printhexa(nb, i, base);
 	return (written_size);

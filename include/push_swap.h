@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:30:12 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/01 16:39:56 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:38:14 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ typedef struct s_circ_list {
 	struct s_circ_list	*next;
 }	t_circ_list;
 
-void		swap(t_list *list);
-void		push(t_list *src, t_list *dst);
-void		rotate(t_list *list);
-void		r_rotate(t_list *list);
+void		swap(t_circ_list *list);
+void		push(t_circ_list *src, t_circ_list *dst);
+void		rotate(t_circ_list *list);
+void		reverse(t_circ_list *list);
+
 //	main.c
 int			check_digit(char **input);
 //	lst_functions.c
@@ -45,5 +46,12 @@ char		**split_input(char **input);
 size_t		strtab_len(char **strtab);
 char		**join_strtab(char **stab1, char **stab2);
 void		strtab_cat(char **dst, char **src, size_t dst_end);
+size_t		get_lst_size(t_circ_list *lst);
+void		sort_chose(size_t lst_size, t_circ_list *a, t_circ_list *b);
+
+//	small_sort.c
+void		sort_3(t_circ_list *a);
+void		sort_3_next(t_circ_list *a);
+void		sort_5(t_circ_list *a, t_circ_list *b);
 
 #endif
