@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:53:28 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/05 16:38:23 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:41:27 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,6 @@ void	sort_chose(size_t lst_size, t_circ_list *a, t_circ_list *b)
 		sort_3(a);
 	else if (lst_size <= 5)
 		sort_5(a, b);
+	else
+		quicksort(a, b);
 }

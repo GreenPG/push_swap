@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:09:33 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/01 16:32:54 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:12:54 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_circ_list	*parsing(char **input)
 	char		**splitted_input;
 
 	splitted_input = split_input(input);
-	if (check_param_size(splitted_input) == -1 || check_digit(splitted_input)
+	if (!splitted_input[0] || check_param_size(splitted_input) == -1
+		|| check_digit(splitted_input)
 		== -1)
 		return (NULL);
 	a = c_lst_new();

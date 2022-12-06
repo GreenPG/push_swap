@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:59:48 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/05 11:18:33 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:49:27 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int	check_digit(char **input)
 	while (input[i])
 	{
 		j = 0;
+		while (input[i][j] == ' ')
+			j++;
+		if (input[i][j] == '-')
+			j++;
 		while (input[i][j])
 		{
 			if (ft_isdigit(input[i][j]) != 1)
@@ -36,7 +40,8 @@ int	main(int ac, char **av)
 {
 	t_circ_list	*a;
 	t_circ_list	*b;
-	t_circ_list	*disp_lst;
+	t_circ_list	*disp_lst_a;
+	t_circ_list	*disp_lst_b;
 
 	if (ac == 0)
 	{
@@ -52,21 +57,25 @@ int	main(int ac, char **av)
 	if (check_sorted(a) == 1)
 		return (0);
 	b = c_lst_new();
-	disp_lst = a->next;
+	put_index(a);
+	disp_lst_a = a->next;
 	ft_printf("-------------------------\nBefore sorting:\n");
-	while (disp_lst != a)
+	while (disp_lst_a != a)
 	{
-		ft_printf("%d\n", disp_lst->content);
-		disp_lst = disp_lst->next;
+		ft_printf("%d\n", disp_lst_a->content);
+		disp_lst_a = disp_lst_a->next;
 	}
 	ft_printf("\n------------------------\n");
-	sort_chose(get_lst_size(a), a, b);
-	disp_lst = a->next;
+	a->lst_size = get_lst_size(a);
+	sort_chose(a->lst_size, a, b);
+	disp_lst_a = a->next;
+	disp_lst_b = b->next;
 	ft_printf("-------------------------\nAfter sorting:\n");
-	while (disp_lst != a)
+	while (disp_lst_a != a || disp_lst_b != b)
 	{
-		ft_printf("%d\n", disp_lst->content);
-		disp_lst = disp_lst->next;
+		ft_printf("%d	%d\n", disp_lst_a->content, disp_lst_b->content);
+		disp_lst_a = disp_lst_a->next;
+		disp_lst_b = disp_lst_b->next;
 	}
 	return (0);
 }

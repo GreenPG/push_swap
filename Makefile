@@ -6,7 +6,7 @@
 #    By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:10:41 by gpasquet          #+#    #+#              #
-#    Updated: 2022/12/04 14:27:56 by gpasquet         ###   ########.fr        #
+#    Updated: 2022/12/06 15:42:19 by gpasquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SRC =	src/main.c \
 		src/parsing.c \
 		src/utils.c \
 		src/move_functions.c \
-		src/small_sort.c
+		src/small_sort.c \
+		src/index_functions.c \
+		src/quicksort.c
 
 OBJS = ${SRC:.c=.o}
 

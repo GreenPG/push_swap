@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 14:02:49 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/05 17:15:05 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:56:44 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ void	sort_3(t_circ_list *a)
 
 void	sort_3_next(t_circ_list *a)
 {
-	if (a->next->content > a->next->next->content
-		&& a->next->next->content < a->prev->content)
+	if (a->next->content > a->next->next->content)
 	{
 		ft_printf("sa\n");
 		swap(a);
@@ -68,24 +67,34 @@ void	sort_5(t_circ_list *a, t_circ_list *b)
 			ft_printf("rra\n");
 		}
 		else
+			sort_5_next(a, b);
+	}
+}
+
+void	sort_5_next(t_circ_list *a, t_circ_list *b)
+{
+	push(a, b);
+	ft_printf("pa\n");
+	push(a, b);
+	ft_printf("pa\n");
+	sort_3(a);
+	while (b->next != b)
+	{
+		if (b->next->content < a->next->content)
 		{
-			push(a, b);
-			ft_printf("pa\n");
-			push(a, b);
-			ft_printf("pa\n");
-			sort_3(a);
-			while (b->next != b)
+			push(b, a);
+			ft_printf("pb\n");
+		}
+		else
+		{
+			rotate(a);
+			ft_printf("ra\n");
+			if (b->next->content < a->next->content)
 			{
-				if (a->next->content > b->next->content)
-				{
-					push(b, a);
-					ft_printf("pb\n");
-				}
-				else
-				{
-					rotate(a);
-					ft_printf("ra\n");
-				}
+				push(b, a);
+				ft_printf("pb\n");
+				reverse(a);
+				ft_printf("rra\n");
 			}
 		}
 	}
