@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:44:04 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/06 15:21:42 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:39:39 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	put_index(t_circ_list *a)
 
 	lst_size = get_lst_size(a);
 	min = get_min_value(a);
-	index = 0;
-	while (index <= lst_size - 1)
+	index = 1;
+	while (index <= lst_size)
 	{
 		elem = a->next;
 		while (elem != a)

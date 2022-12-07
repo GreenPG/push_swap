@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:30:12 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/06 16:11:41 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:42:25 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,13 @@ void		sort_chose(size_t lst_size, t_circ_list *a, t_circ_list *b);
 void		sort_3(t_circ_list *a);
 void		sort_3_next(t_circ_list *a);
 void		sort_5(t_circ_list *a, t_circ_list *b);
-void		sort_5_next(t_circ_list *a, t_circ_list *b);
-void		sort_5_next_next(t_circ_list *a, t_circ_list *b);
+void		sort_5_r_or_rr(t_circ_list *a, int min);
 
 //	index_functions.c
 void		put_index(t_circ_list *a);
 int			get_min_value(t_circ_list *a);
 
-//	quicksort.c
-void		quicksort(t_circ_list *a, t_circ_list *b);
+//	big_sort.c
+void		big_sort(t_circ_list *a, t_circ_list *b);
 
 #endif

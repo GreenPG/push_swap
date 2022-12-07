@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quicksort.c                                        :+:      :+:    :+:   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 14:29:34 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/06 15:49:18 by gpasquet         ###   ########.fr       */
+/*   Created: 2022/12/07 13:22:09 by gpasquet          #+#    #+#             */
+/*   Updated: 2022/12/07 13:40:58 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	quicksort(t_circ_list *a, t_circ_list *b)
+void	big_sort(t_circ_list *a, t_circ_list *b)
 {
-	int	pivot;
-	t_circ_list *elem;
+	int			pivot;
+	t_circ_list	*elem;
 
-	pivot = a->next->content;
 	elem = a->next;
+	pivot = a->lst_size / 2;
 	while (elem != a)
 	{
-		if (elem->content > pivot)
+		if (elem->index >= pivot)
 		{
 			push(a, b);
 			ft_printf("pa\n");
 		}
 		else
 		{
-			rotate(b);
-			ft_printf("rb\n");
 			push(a, b);
 			ft_printf("pa\n");
+			rotate(b);
+			ft_printf("ra\n");
 		}
-		elem = elem->next;
 	}
 }

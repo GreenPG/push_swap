@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 14:02:49 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/06 17:56:44 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:19:45 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	sort_3_next(t_circ_list *a)
 		swap(a);
 	}
 	else if (a->next->content < a->next->next->content
-		&& a->next->next->content > a->prev->content)
+			&& a->next->next->content > a->prev->content)
 	{
 		reverse(a);
 		ft_printf("rra\n");
@@ -54,48 +54,36 @@ void	sort_3_next(t_circ_list *a)
 
 void	sort_5(t_circ_list *a, t_circ_list *b)
 {
-	while (check_sorted(a) == 0 || b->next != b)
-	{
-		if (a->next->content > a->next->next->content)
-		{
-			swap(a);
-			ft_printf("sa\n");
-		}
-		else if (a->next->content > a->prev->content)
-		{
-			reverse(a);
-			ft_printf("rra\n");
-		}
-		else
-			sort_5_next(a, b);
-	}
-}
+	int	min;
 
-void	sort_5_next(t_circ_list *a, t_circ_list *b)
-{
-	push(a, b);
-	ft_printf("pa\n");
-	push(a, b);
-	ft_printf("pa\n");
+	while (a->next != a && check_sorted(a) == 0 && get_lst_size(a) > 3)
+	{
+		min = get_min_value(a);
+		sort_5_r_or_rr(a, min);
+		push(a, b);
+		ft_printf("pa\n");
+	}
 	sort_3(a);
 	while (b->next != b)
 	{
-		if (b->next->content < a->next->content)
-		{
-			push(b, a);
-			ft_printf("pb\n");
-		}
-		else
+		push(b, a);
+		ft_printf("pb\n");
+	}
+}
+
+void	sort_5_r_or_rr(t_circ_list *a, int min)
+{
+	while (a->next->content != min)
+	{
+		if (a->next->next->content == min)
 		{
 			rotate(a);
 			ft_printf("ra\n");
-			if (b->next->content < a->next->content)
-			{
-				push(b, a);
-				ft_printf("pb\n");
-				reverse(a);
-				ft_printf("rra\n");
-			}
+		}
+		else
+		{
+			reverse(a);
+			ft_printf("rra\n");
 		}
 	}
 }
