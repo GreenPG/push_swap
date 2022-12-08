@@ -6,32 +6,44 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:22:09 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/07 13:40:58 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:40:10 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	big_sort(t_circ_list *a, t_circ_list *b)
+void	rot_up_a(t_circ_list *elem, t_circ_list *a)
 {
-	int			pivot;
-	t_circ_list	*elem;
-
-	elem = a->next;
-	pivot = a->lst_size / 2;
-	while (elem != a)
+	while (elem->prev != a)
 	{
-		if (elem->index >= pivot)
-		{
-			push(a, b);
-			ft_printf("pa\n");
-		}
-		else
-		{
-			push(a, b);
-			ft_printf("pa\n");
-			rotate(b);
-			ft_printf("ra\n");
-		}
+		reverse(a);
+		ft_printf("rra\n");
+	}
+}
+
+void	rot_up_b(t_circ_list *elem, t_circ_list *b)
+{
+	while (elem->prev != b)
+	{
+		reverse(b);
+		ft_printf("rrb\n");
+	}
+}
+
+void	rot_down_a(t_circ_list *elem, t_circ_list *a)
+{
+	while (elem->prev != a)
+	{
+		rotate(a);
+		ft_printf("ra\n");
+	}
+}
+
+void	rot_down_b(t_circ_list *elem, t_circ_list *b)
+{
+	while (elem->prev != b)
+	{
+		rotate(b);
+		ft_printf("rb\n");
 	}
 }

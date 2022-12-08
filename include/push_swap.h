@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:30:12 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/07 14:42:25 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/08 17:20:51 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,22 @@ void		sort_5_r_or_rr(t_circ_list *a, int min);
 //	index_functions.c
 void		put_index(t_circ_list *a);
 int			get_min_value(t_circ_list *a);
+int			get_max_value(t_circ_list *a);
 
 //	big_sort.c
-void		big_sort(t_circ_list *a, t_circ_list *b);
+void		rot_up_a(t_circ_list *elem, t_circ_list *a);
+void		rot_up_b(t_circ_list *elem, t_circ_list *b);
+void		rot_down_a(t_circ_list *elem, t_circ_list *a);
+void		rot_down_b(t_circ_list *elem, t_circ_list *b);
+
+//	big_sort2.c
+void		big_sort2(t_circ_list *a, t_circ_list *b, int chunk_nb);
+t_circ_list	*put_elem_top(t_circ_list *a, int max_chunk);
+t_circ_list	*get_hold_first(t_circ_list *a, int max_chunk);
+t_circ_list	*get_hold_second(t_circ_list *a, int max_chunk);
+int			nb_to_top(t_circ_list *elem, t_circ_list *lst);
+int			nb_to_bottom(t_circ_list *elem, t_circ_list *lst);
+void		get_min_to_top(t_circ_list *lst, char lst_name);
+void		get_max_to_top(t_circ_list *lst, char lst_name);
 
 #endif
