@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:29:33 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/08 17:36:25 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:38:33 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,31 @@ void	big_sort2(t_circ_list *a, t_circ_list *b, int chunk_nb)
 	int			max_chunk;
 
 	max_chunk = a->lst_size / chunk_nb;
-	while (a->next != a)
+	while (max_chunk < a->lst_size)
 	{
 		elem = put_elem_top(a, max_chunk);
 		if (!elem)
 		{
 			max_chunk += a->lst_size / chunk_nb;
-			elem = put_elem_top(a, max_chunk);
+			if (max_chunk < a->lst_size - a->lst_size / chunk_nb)
+				elem = put_elem_top(a, max_chunk);
 		}
-		if (b->next == b || b->next->content == get_min_value(b))
+		if (elem)
 		{
-			push(a, b);
-			ft_printf("pb\n");
-		}
-		else
-		{
-			get_min_to_top(b, 'b');
-			push(a, b);
-			ft_printf("pb\n");
+			if (b->next == b || b->next->content == get_min_value(b))
+			{
+				push(a, b);
+				ft_printf("pb\n");
+			}
+			else
+			{
+				get_min_to_top(b, 'b');
+				push(a, b);
+				ft_printf("pb\n");
+			}
 		}
 	}
+	sort_last_chunk(a);
 	while (b->next != b)
 	{
 		get_max_to_top(b, 'b');
@@ -170,4 +175,27 @@ void		get_max_to_top(t_circ_list *lst, char lst_name)
 		else
 			rot_down_b(elem, lst);
 	}
+}
+
+void	sort_last_chunk(t_circ_list *a)
+{
+	t_circ_list	*elem;
+	int			index_max;
+
+	index_max = get_max_index(a);
+	min = get_min_index(a);
+	elem = a->next;
+	while (min <= index_max)
+	{
+		while (elem->index != min)
+		{
+			elem = elem->next;
+		}
+		if (less_mv_to_prev == 0)
+			move_to_prev(elem, a, 0);
+		else
+			move_to_prev(elem, a, 1);
+		min++;
+	}
+	get_min_to_top(a, 'a');
 }

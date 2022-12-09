@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 12:13:39 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/01 16:44:54 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/09 10:53:53 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ void	c_lst_clear(t_circ_list *list)
 	it = list->next;
 	while (it != list)
 	{
-		tmp = it;
+		tmp = it->next;
 		c_lst_del(it);
-		it = tmp->next;
+		it = tmp;
 	}
 	free(list);
 }

@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:44:04 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/08 16:03:41 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:55:42 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,36 @@ int	get_max_value(t_circ_list *a)
 		elem = elem->next;
 	}
 	return (max);
+}
+
+int	get_max_index(t_circ_list *a)
+{
+	int			max;
+	t_circ_list	*elem;
+
+	max = get_max_value(a);
+	elem = a->next;
+	while (elem->next != a)
+	{
+		if (elem->content == max)
+			return (elem->index);
+		elem = elem->next;
+	}
+	return (0);
+}
+
+int	get_min_index(t_circ_list *a)
+{
+	int			min;
+	t_circ_list	*elem;
+
+	min = get_min_value(a);
+	elem = a->next;
+	while (elem->next != a)
+	{
+		if (elem->content == min)
+			return (elem->index);
+		elem = elem->next;
+	}
+	return (0);
 }

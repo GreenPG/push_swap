@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:09:33 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/06 14:12:54 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:10:43 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ t_circ_list	*parsing(char **input)
 	if (!splitted_input[0] || check_param_size(splitted_input) == -1
 		|| check_digit(splitted_input)
 		== -1)
+	{
+		free_str_tab(splitted_input);
 		return (NULL);
+	}
 	a = c_lst_new();
 	if (!a)
 		return (0);
@@ -32,6 +35,7 @@ t_circ_list	*parsing(char **input)
 		c_lst_add_front(a, ft_atoi(splitted_input[i]));
 		i++;
 	}
+	free_str_tab(splitted_input);
 	if (check_duplicate(a) == -1)
 	{	
 		c_lst_clear(a);
@@ -54,7 +58,7 @@ char	**split_input(char **input)
 	{
 		splitted_arg = ft_split(input[i], ' ');
 		splitted_input = join_strtab(splitted_input, splitted_arg);
-		free(splitted_arg);
+		free_str_tab(splitted_arg);
 		i++;
 	}
 	return (splitted_input);
@@ -72,8 +76,7 @@ int	check_param_size(char **input)
 		j = 0;
 		while (input[i][j] == '0')
 			j++;
-		input[i] += j;
-		if (ft_strlen(input[i]) > 11)
+		if (ft_strlen(&input[i][j]) > 11)
 			return (-1);
 		tmp = ft_atoll(input[i]);
 		if (tmp > INT_MAX || tmp < INT_MIN)

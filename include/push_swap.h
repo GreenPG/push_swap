@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:30:12 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/08 17:20:51 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:55:06 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char		**join_strtab(char **stab1, char **stab2);
 void		strtab_cat(char **dst, char **src, size_t dst_end);
 size_t		get_lst_size(t_circ_list *lst);
 void		sort_chose(size_t lst_size, t_circ_list *a, t_circ_list *b);
+void		free_str_tab(char **str_tab);
 
 //	small_sort.c
 void		sort_3(t_circ_list *a);
@@ -61,6 +62,8 @@ void		sort_5_r_or_rr(t_circ_list *a, int min);
 void		put_index(t_circ_list *a);
 int			get_min_value(t_circ_list *a);
 int			get_max_value(t_circ_list *a);
+int			get_max_index(t_circ_list *a);
+int			get_min_index(t_circ_list *a);
 
 //	big_sort.c
 void		rot_up_a(t_circ_list *elem, t_circ_list *a);
@@ -77,5 +80,6 @@ int			nb_to_top(t_circ_list *elem, t_circ_list *lst);
 int			nb_to_bottom(t_circ_list *elem, t_circ_list *lst);
 void		get_min_to_top(t_circ_list *lst, char lst_name);
 void		get_max_to_top(t_circ_list *lst, char lst_name);
+void		sort_last_chunk(t_circ_list *a);
 
 #endif

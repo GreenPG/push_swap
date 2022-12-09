@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:59:48 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/08 16:30:19 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:48:57 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	if (check_sorted(a) == 1)
+	{
+		c_lst_clear(a);
 		return (0);
+	}
 	b = c_lst_new();
 	put_index(a);
 	disp_lst_a = a->next;
@@ -81,5 +84,7 @@ int	main(int ac, char **av)
 		disp_lst_a = disp_lst_a->next;
 		disp_lst_b = disp_lst_b->next;
 	}
+	c_lst_clear(a);
+	c_lst_clear(b);
 	return (0);
 }
