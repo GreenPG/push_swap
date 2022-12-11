@@ -6,7 +6,7 @@
 #    By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:10:41 by gpasquet          #+#    #+#              #
-#    Updated: 2022/12/08 16:08:03 by gpasquet         ###   ########.fr        #
+#    Updated: 2022/12/11 15:29:14 by gpasquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC =	src/main.c \
 		src/small_sort.c \
 		src/index_functions.c \
 		src/big_sort.c \
-		src/big_sort2.c
+		src/rotation_functions.c
 
 OBJS = ${SRC:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:30:12 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/09 16:55:06 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/11 15:38:18 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void		c_lst_clear(t_circ_list *lst);
 int			check_param_size(char **input);
 t_circ_list	*parsing(char **input);
 int			check_sorted(t_circ_list *a);
+int			check_almost_sorted(t_circ_list *a);
 int			check_duplicate(t_circ_list *lst);
 char		**split_input(char **input);
 
@@ -64,6 +65,7 @@ int			get_min_value(t_circ_list *a);
 int			get_max_value(t_circ_list *a);
 int			get_max_index(t_circ_list *a);
 int			get_min_index(t_circ_list *a);
+t_circ_list	*find_elem_index(t_circ_list *lst, int index);
 
 //	big_sort.c
 void		rot_up_a(t_circ_list *elem, t_circ_list *a);
@@ -71,8 +73,8 @@ void		rot_up_b(t_circ_list *elem, t_circ_list *b);
 void		rot_down_a(t_circ_list *elem, t_circ_list *a);
 void		rot_down_b(t_circ_list *elem, t_circ_list *b);
 
-//	big_sort2.c
-void		big_sort2(t_circ_list *a, t_circ_list *b, int chunk_nb);
+//	big_sort.c
+void		big_sort(t_circ_list *a, t_circ_list *b, int chunk_nb);
 t_circ_list	*put_elem_top(t_circ_list *a, int max_chunk);
 t_circ_list	*get_hold_first(t_circ_list *a, int max_chunk);
 t_circ_list	*get_hold_second(t_circ_list *a, int max_chunk);
@@ -81,5 +83,7 @@ int			nb_to_bottom(t_circ_list *elem, t_circ_list *lst);
 void		get_min_to_top(t_circ_list *lst, char lst_name);
 void		get_max_to_top(t_circ_list *lst, char lst_name);
 void		sort_last_chunk(t_circ_list *a);
+int			less_mv_to_prev(t_circ_list *elem);
+void		move_to_prev(t_circ_list *elem, t_circ_list *lst, int direction);
 
 #endif

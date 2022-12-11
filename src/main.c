@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:59:48 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/09 15:48:57 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/11 14:18:45 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,18 @@ int	main(int ac, char **av)
 	b = c_lst_new();
 	put_index(a);
 	disp_lst_a = a->next;
-	ft_printf("-------------------------\nBefore sorting:\n");
+/*	ft_printf("-------------------------\nBefore sorting:\n");
 	while (disp_lst_a != a)
 	{
 		ft_printf("%d\n", disp_lst_a->content);
 		disp_lst_a = disp_lst_a->next;
 	}
-	ft_printf("\n------------------------\n");
+*/	ft_printf("\n------------------------\n");
 	a->lst_size = get_lst_size(a);
 	sort_chose(a->lst_size, a, b);
 	disp_lst_a = a->next;
 	disp_lst_b = b->next;
-	ft_printf("-------------------------\nAfter sorting:\n");
+/*	ft_printf("-------------------------\nAfter sorting:\n");
 	while (disp_lst_a != a)
 	{
 		ft_printf("%d	", disp_lst_a->content, disp_lst_b->content);
@@ -84,7 +84,7 @@ int	main(int ac, char **av)
 		disp_lst_a = disp_lst_a->next;
 		disp_lst_b = disp_lst_b->next;
 	}
-	c_lst_clear(a);
+*/	c_lst_clear(a);
 	c_lst_clear(b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:44:04 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/09 16:55:42 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/11 13:27:46 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	get_min_value(t_circ_list *a)
 	min = elem->content;
 	while (elem->next != a)
 	{
-		if (elem->next->content < min)
+		if (elem->next->content < min && elem != a)
 			min = elem->next->content;
 		elem = elem->next;
 	}
@@ -94,11 +94,21 @@ int	get_min_index(t_circ_list *a)
 
 	min = get_min_value(a);
 	elem = a->next;
-	while (elem->next != a)
+	while (elem != a)
 	{
 		if (elem->content == min)
 			return (elem->index);
 		elem = elem->next;
 	}
 	return (0);
+}
+
+t_circ_list	*find_elem_index(t_circ_list *lst, int index)
+{
+	t_circ_list	*elem;
+
+	elem = lst->next;
+	while (elem->index != index)
+		elem = elem->next;
+	return (elem);
 }

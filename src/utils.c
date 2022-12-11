@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:53:28 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/09 11:40:50 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/11 15:29:48 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void	sort_chose(size_t lst_size, t_circ_list *a, t_circ_list *b)
 	else if (lst_size <= 5)
 		sort_5(a, b);
 	else if (lst_size <= 100)
-		big_sort2(a, b, 5);
+		big_sort(a, b, 5);
 	else
-		big_sort2(a, b, 11);
+		big_sort(a, b, 11);
 }
 
 void	free_str_tab(char **str_tab)

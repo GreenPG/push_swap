@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:09:33 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/09 14:10:43 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/11 14:06:51 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,24 @@ int	check_sorted(t_circ_list *a)
 	while (tmp != a)
 	{
 		if (tmp->content < tmp->prev->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+int	check_almost_sorted(t_circ_list *a)
+{
+	t_circ_list	*tmp;
+	int			max_index;
+	int			min_index;
+
+	max_index = get_max_index(a);
+	min_index = get_min_index(a);
+	tmp = a->next->next;
+	while (tmp != a)
+	{
+		if (tmp->content < tmp->prev->content && (tmp->index != min_index || tmp->prev->index != max_index))
 			return (0);
 		tmp = tmp->next;
 	}
