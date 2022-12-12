@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:53:28 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/11 15:29:48 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:05:22 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,6 @@ size_t	get_lst_size(t_circ_list *lst)
 		elem = elem->next;
 	}
 	return (size);
-}
-
-void	sort_chose(size_t lst_size, t_circ_list *a, t_circ_list *b)
-{
-	(void)b;
-	if (lst_size <= 3)
-		sort_3(a);
-	else if (lst_size <= 5)
-		sort_5(a, b);
-	else if (lst_size <= 100)
-		big_sort(a, b, 5);
-	else
-		big_sort(a, b, 11);
 }
 
 void	free_str_tab(char **str_tab)

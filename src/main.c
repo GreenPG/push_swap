@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:59:48 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/11 14:18:45 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:36:43 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ int	check_digit(char **input)
 		j = 0;
 		while (input[i][j] == ' ')
 			j++;
-		if (input[i][j] == '-')
+		if (input[i][j] == '-' || input[i][j] == '+')
 			j++;
+		if (ft_isdigit(input[i][j]) != 1)
+			return (-1);
 		while (input[i][j])
 		{
 			if (ft_isdigit(input[i][j]) != 1)
@@ -36,55 +38,42 @@ int	check_digit(char **input)
 	return (0);
 }
 
+t_lists	*initiate_lists(char **input)
+{
+	t_lists	*lists;
+
+	lists = malloc(sizeof(*lists));
+	lists->a = parsing(input);
+	if (!lists->a)
+	{
+		ft_printf("Error\n");
+		free(lists);
+		exit(0);
+	}
+	if (check_sorted(lists->a) == 1)
+	{
+		free(lists);
+		return (0);
+	}
+	lists->b = c_lst_new();
+	lists->move_list = mv_lstnew("");
+	put_index(lists->a);
+	lists->a->lst_size = get_lst_size(lists->a);
+	return (lists);
+}
+
 int	main(int ac, char **av)
 {
-	t_circ_list	*a;
-	t_circ_list	*b;
-	t_circ_list	*disp_lst_a;
-	t_circ_list	*disp_lst_b;
+	t_lists	*lists;
 
 	if (ac == 0)
 	{
 		ft_printf("Error\n");
 		return (0);
 	}
-	a = parsing(av + 1);
-	if (!a)
-	{
-		ft_printf("Error\n");
-		return (0);
-	}
-	if (check_sorted(a) == 1)
-	{
-		c_lst_clear(a);
-		return (0);
-	}
-	b = c_lst_new();
-	put_index(a);
-	disp_lst_a = a->next;
-/*	ft_printf("-------------------------\nBefore sorting:\n");
-	while (disp_lst_a != a)
-	{
-		ft_printf("%d\n", disp_lst_a->content);
-		disp_lst_a = disp_lst_a->next;
-	}
-*/	ft_printf("\n------------------------\n");
-	a->lst_size = get_lst_size(a);
-	sort_chose(a->lst_size, a, b);
-	disp_lst_a = a->next;
-	disp_lst_b = b->next;
-/*	ft_printf("-------------------------\nAfter sorting:\n");
-	while (disp_lst_a != a)
-	{
-		ft_printf("%d	", disp_lst_a->content, disp_lst_b->content);
-		if (disp_lst_b != b)
-			ft_printf("%d\n", disp_lst_b->content);
-		else
-			write(1, "\n", 1);
-		disp_lst_a = disp_lst_a->next;
-		disp_lst_b = disp_lst_b->next;
-	}
-*/	c_lst_clear(a);
-	c_lst_clear(b);
+	lists = initiate_lists(av + 1);
+	sort_chose(lists);
+	display_move(lists->move_list);
+	free_lists(lists);
 	return (0);
 }

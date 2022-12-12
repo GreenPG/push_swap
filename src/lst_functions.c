@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 12:13:39 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/09 10:53:53 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:15:59 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,25 +58,31 @@ void	c_lst_add_back(t_circ_list *lst, int content)
 	lst->next = new_elem;
 }
 
-void	c_lst_del(t_circ_list *elem)
+t_move_list	*mv_lstnew(char	*str)
 {
-	if (!elem)
-		return ;
-	free(elem);
+	t_move_list	*lst;
+
+	lst = malloc(sizeof(*lst));
+	if (!lst)
+		return (0);
+	lst->move = str;
+	lst->next = NULL;
+	return (lst);
 }
 
-void	c_lst_clear(t_circ_list *list)
+void	mv_lst_addback(t_move_list *lst, char *move)
 {
-	t_circ_list	*tmp;
-	t_circ_list	*it;
+	t_move_list	*new_elem;
+	t_move_list	*tmp;
 
-	tmp = NULL;
-	it = list->next;
-	while (it != list)
+	tmp = lst;
+	new_elem = mv_lstnew(move);
+	if (!new_elem)
 	{
-		tmp = it->next;
-		c_lst_del(it);
-		it = tmp;
+		mv_lst_clear(lst);
+		return ;
 	}
-	free(list);
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new_elem;
 }

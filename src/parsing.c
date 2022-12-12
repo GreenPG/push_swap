@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:09:33 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/11 14:06:51 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:11:28 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_circ_list	*parsing(char **input)
 {
 	t_circ_list	*a;
-	int			i;
 	char		**splitted_input;
 
 	splitted_input = split_input(input);
@@ -26,6 +25,22 @@ t_circ_list	*parsing(char **input)
 		free_str_tab(splitted_input);
 		return (NULL);
 	}
+	a = input_to_lst(splitted_input);
+	if (!a)
+		return (0);
+	if (check_duplicate(a) == -1)
+	{	
+		c_lst_clear(a);
+		return (NULL);
+	}
+	return (a);
+}
+
+t_circ_list	*input_to_lst(char **splitted_input)
+{
+	t_circ_list	*a;
+	int			i;
+
 	a = c_lst_new();
 	if (!a)
 		return (0);
@@ -36,11 +51,6 @@ t_circ_list	*parsing(char **input)
 		i++;
 	}
 	free_str_tab(splitted_input);
-	if (check_duplicate(a) == -1)
-	{	
-		c_lst_clear(a);
-		return (NULL);
-	}
 	return (a);
 }
 
@@ -98,42 +108,4 @@ int	check_sorted(t_circ_list *a)
 		tmp = tmp->next;
 	}
 	return (1);
-}
-
-int	check_almost_sorted(t_circ_list *a)
-{
-	t_circ_list	*tmp;
-	int			max_index;
-	int			min_index;
-
-	max_index = get_max_index(a);
-	min_index = get_min_index(a);
-	tmp = a->next->next;
-	while (tmp != a)
-	{
-		if (tmp->content < tmp->prev->content && (tmp->index != min_index || tmp->prev->index != max_index))
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
-}
-
-int	check_duplicate(t_circ_list *lst)
-{
-	t_circ_list	*tmp;
-	t_circ_list	*reverse;
-
-	tmp = lst->next;
-	while (tmp != lst)
-	{
-		reverse = tmp->prev;
-		while (reverse != lst)
-		{
-			if (reverse->content == tmp->content)
-				return (-1);
-			reverse = reverse->prev;
-		}
-		tmp = tmp->next;
-	}
-	return (0);
 }
