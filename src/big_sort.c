@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:29:33 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/13 14:24:43 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:32:30 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	big_sort(t_lists *lists, int chunk_nb)
 	max_chunk = lists->a->lst_size / chunk_nb;
 	pivot = max_chunk / 2;
 	partitioning(lists, max_chunk, pivot);
+	sort_last_chunk(lists);
 	while (lists->b->next != lists->b)
 	{
 		get_max_to_top(lists->b, 'b', lists->move_list);
@@ -36,7 +37,7 @@ void	partitioning(t_lists *lists, int max_chunk, int pivot)
 	int			increment;
 
 	increment = max_chunk;
-	while (lists->a->next != lists->a)
+	while (max_chunk < lists->a->lst_size)
 	{
 		elem = put_elem_top(lists->a, max_chunk, lists->move_list);
 		if (!elem)

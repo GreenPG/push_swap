@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:30:12 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/13 11:32:35 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:04:31 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ void		rot_down_a(t_circ_list *elem, t_circ_list *a,
 				t_move_list *move_list);
 void		rot_down_b(t_circ_list *elem, t_circ_list *b,
 				t_move_list *move_list);
+//	sort_last_chunk.c
+void		sort_last_chunk(t_lists *lists);
 
 //	big_sort.c
 void		big_sort(t_lists *lists, int chunk_nb);

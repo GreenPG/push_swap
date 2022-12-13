@@ -6,7 +6,7 @@
 #    By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:10:41 by gpasquet          #+#    #+#              #
-#    Updated: 2022/12/12 17:16:53 by gpasquet         ###   ########.fr        #
+#    Updated: 2022/12/13 17:04:47 by gpasquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRC =	src/main.c \
 		src/rotation_functions.c \
 		src/get_limits.c \
 		src/get_elem.c \
-		src/move_display.c
+		src/move_display.c \
+		src/sort_last_chunk.c
 
 OBJS = ${SRC:.c=.o}
 
