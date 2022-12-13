@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 17:15:17 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/12 17:16:01 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:01:12 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,14 @@ t_move_list	*double_move(t_move_list *lst)
 		ft_printf("ss\n");
 		lst = lst->next;
 	}
-	if (lst->move[0] == 'p' && (lst->move[1] != lst->next->move[1]))
-	{
-		ft_printf("pp\n");
-		lst = lst->next;
-	}
-	if (lst->move[0] == 'r' && lst->move[1] == 'r' && (lst->move[2]
+	else if (lst->move[0] == 'r' && lst->move[1] == 'r' && (lst->move[2]
 			!= lst->next->move[2]))
 	{
-		ft_printf("rrr\n");
-		lst = lst->next;
-	}
-	else if (lst->move[1] != 'r' && lst->next->move[1] != 'r' && lst->move[1]
-		!= lst->next->move[1])
-	{	
-		ft_printf("rr\n");
+		if (lst->move[1] != 'r' && lst->next->move[1] != 'r' && lst->move[1]
+			!= lst->next->move[1])
+			ft_printf("rr\n");
+		else
+			ft_printf("rrr\n");
 		lst = lst->next;
 	}
 	else

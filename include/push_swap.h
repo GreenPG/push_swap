@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:30:12 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/12 17:01:50 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/13 11:32:35 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int			get_max_value(t_circ_list *a);
 int			get_max_index(t_circ_list *a);
 int			get_min_index(t_circ_list *a);
 t_circ_list	*find_elem_index(t_circ_list *lst, int index);
+int			find_next_content(t_circ_list *a, int prev_content);
 
 //	rotation_functions.c
 void		rot_up_a(t_circ_list *elem, t_circ_list *a, t_move_list *move_list);

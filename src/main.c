@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:59:48 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/12 17:36:43 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/13 10:46:39 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ t_lists	*initiate_lists(char **input)
 	lists->a = parsing(input);
 	if (!lists->a)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		free(lists);
 		exit(0);
 	}
 	if (check_sorted(lists->a) == 1)
 	{
-		free(lists);
-		return (0);
+		free_lists(lists);
+		exit(0);
 	}
 	lists->b = c_lst_new();
 	lists->move_list = mv_lstnew("");
@@ -68,7 +68,7 @@ int	main(int ac, char **av)
 
 	if (ac == 0)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	lists = initiate_lists(av + 1);

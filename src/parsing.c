@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:09:33 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/12 14:11:28 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/13 11:11:42 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_circ_list	*parsing(char **input)
 	char		**splitted_input;
 
 	splitted_input = split_input(input);
+	if (!splitted_input)
+		return (NULL);
 	if (!splitted_input[0] || check_param_size(splitted_input) == -1
 		|| check_digit(splitted_input)
 		== -1)
@@ -69,6 +71,11 @@ char	**split_input(char **input)
 		splitted_arg = ft_split(input[i], ' ');
 		splitted_input = join_strtab(splitted_input, splitted_arg);
 		free_str_tab(splitted_arg);
+		if (!splitted_input)
+		{
+			free(splitted_input);
+			return (NULL);
+		}
 		i++;
 	}
 	return (splitted_input);
@@ -84,6 +91,8 @@ int	check_param_size(char **input)
 	while (input[i])
 	{
 		j = 0;
+		if (input[i][j] == '-' || input[i][j] == '+')
+			j++;
 		while (input[i][j] == '0')
 			j++;
 		if (ft_strlen(&input[i][j]) > 11)

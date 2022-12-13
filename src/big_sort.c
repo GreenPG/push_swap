@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:29:33 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/12 17:14:44 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:24:43 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	big_sort(t_lists *lists, int chunk_nb)
 	{
 		get_max_to_top(lists->b, 'b', lists->move_list);
 		push(lists->b, lists->a, lists->move_list, "a");
+		if (lists->a->next->content > lists->a->next->next->content
+			&& lists->a->next != lists->a->prev)
+			swap(lists->a, lists->move_list, "a");
 	}
 }
 

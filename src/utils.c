@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:53:28 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/12 14:05:22 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/13 11:01:17 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ char	**join_strtab(char **stab1, char **stab2)
 	size_t	stab2_len;
 	int		i;
 
-	if (stab2 == 0)
+	if (stab2[0] == 0)
+	{
+		free_str_tab(stab1);
 		return (NULL);
+	}
 	stab1_len = strtab_len(stab1);
 	stab2_len = strtab_len(stab2);
 	new_stab = malloc(sizeof(char *) * (stab1_len + stab2_len + 1));

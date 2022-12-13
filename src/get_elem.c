@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 17:13:42 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/12 17:14:37 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:32:00 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	get_max_to_top(t_circ_list *lst, char lst_name, t_move_list *move_list)
 
 	max = get_max_value(lst);
 	elem = lst->next;
-	while (elem->content != max)
+	while (elem->content < max - 1)
 		elem = elem->next;
 	if (nb_to_top(elem, lst) < nb_to_bottom(elem, lst))
 	{	
