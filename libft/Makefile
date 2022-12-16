@@ -6,7 +6,7 @@
 #    By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                  +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 13:38:40 by gpasquet          #+#    #+#              #
-#    Updated: 2022/12/04 12:42:08 by gpasquet         ###   ########.fr        #
+#    Updated: 2022/12/16 10:54:21 by gpasquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,9 @@ SRCS	=	./src/string/ft_split.c	\
 			./src/print/ft_putnbr_fd.c	\
 			./src/print/ft_puthexa.c	\
 			./src/print/ft_putptr.c		\
-			./src/print/ft_printf.c		
+			./src/print/ft_printf.c		\
+			./src/gnl/get_next_line.c	\
+			./src/gnl/get_next_line_utils.c	
 			
 OBJS= 	${SRCS:%.c=%.o}
 

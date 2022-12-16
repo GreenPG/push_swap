@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:59:48 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/13 10:46:39 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/16 11:05:07 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,8 @@ int	main(int ac, char **av)
 {
 	t_lists	*lists;
 
-	if (ac == 0)
-	{
-		write(2, "Error\n", 6);
+	if (ac == 1)
 		return (0);
-	}
 	lists = initiate_lists(av + 1);
 	sort_chose(lists);
 	display_move(lists->move_list);

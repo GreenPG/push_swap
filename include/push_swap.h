@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:30:12 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/13 17:04:31 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/16 11:04:38 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/include/libft.h"
-# include "../get_next_line/get_next_line.h"
+# include "../libft/include/get_next_line.h"
 
 typedef struct s_circ_list {
 	int					content;
@@ -101,8 +101,6 @@ void		rot_down_a(t_circ_list *elem, t_circ_list *a,
 				t_move_list *move_list);
 void		rot_down_b(t_circ_list *elem, t_circ_list *b,
 				t_move_list *move_list);
-//	sort_last_chunk.c
-void		sort_last_chunk(t_lists *lists);
 
 //	big_sort.c
 void		big_sort(t_lists *lists, int chunk_nb);
@@ -117,5 +115,6 @@ void		get_min_to_top(t_circ_list *lst, char lst_name,
 				t_move_list *move_list);
 void		get_max_to_top(t_circ_list *lst, char lst_name,
 				t_move_list *move_list);
+void		sort_last_chunk(t_lists *lists);
 
 #endif

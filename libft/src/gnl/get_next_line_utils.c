@@ -6,11 +6,11 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 20:32:41 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/11/08 17:08:46 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/16 10:55:35 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../include/get_next_line.h"
 
 void	ft_strjoin_cat(char *dst, const char *src, size_t len, size_t dst_end)
 {

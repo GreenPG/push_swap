@@ -6,11 +6,11 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:44:24 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/11/08 17:10:48 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/16 10:55:02 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../include/get_next_line.h"
 
 static char	*line_filling(char *buf, char *line)
 {

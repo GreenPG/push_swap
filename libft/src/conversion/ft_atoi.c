@@ -6,14 +6,14 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 16:05:26 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/01 13:47:08 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/16 10:59:18 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *nptr)
 {
 	int			i;
-	int	ret;
+	int			ret;
 	int			sign;
 
 	i = 0;

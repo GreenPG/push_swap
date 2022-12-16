@@ -6,7 +6,7 @@
 /*   By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 14:02:49 by gpasquet          #+#    #+#             */
-/*   Updated: 2022/12/13 14:14:42 by gpasquet         ###   ########.fr       */
+/*   Updated: 2022/12/16 10:40:05 by gpasquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	sort_5(t_lists *lists)
 		push(lists->a, lists->b, lists->move_list, "b");
 	}
 	sort_3(lists);
-	push(lists->b, lists->a, lists->move_list, "a");
-	push(lists->b, lists->a, lists->move_list, "a");
+	while (get_lst_size(lists->a) != 5 && lists->b->next != lists->b)
+		push(lists->b, lists->a, lists->move_list, "a");
 }
 
 void	sort_5_r_or_rr(t_lists *lists, int min)
